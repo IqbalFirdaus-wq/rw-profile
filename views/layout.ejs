@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= typeof title !== 'undefined' ? title : "Profil RW" %></title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/style.css">
+
+  <style>
+    /* ===== Toggle Sidebar ===== */
+    .sidebar {
+      transition: transform 0.3s ease;
+    }
+
+    /* Saat layar kecil (< md) jadikan sidebar off-canvas */
+    @media (max-width: 767.98px) {
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 240px;
+        z-index: 1050;
+        background: #fff;
+        transform: translateX(-100%);
+      }
+      .sidebar.active {
+        transform: translateX(0);
+      }
+      /* Overlay gelap di belakang sidebar */
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,.4);
+        z-index: 1049;
+        display: none;
+      }
+      .overlay.show {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body class="bg-light d-flex flex-column min-vh-100">
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success shadow-sm">
+    <div class="container-fluid">
+      <!-- Tombol hamburger hanya di mobile -->
+      <button id="sidebarToggle" class="btn btn-light d-md-none me-2">☰</button>
+      <a class="navbar-brand fw-semibold" href="/">Profil RW</a>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      <!-- ===== SIDEBAR ===== -->
+      <aside id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-white border-end min-vh-100 p-3 sidebar">
+        <h5 class="fw-bold mb-3">Menu</h5>
+        <ul class="nav flex-column gap-1">
+          <li class="nav-item"><a class="nav-link d-flex align-items-center" href="/">📋 <span class="ms-2">Daftar RW</span></a></li>
+          <li class="nav-item"><a class="nav-link d-flex align-items-center" href="/penduduk">👥 <span class="ms-2">Penduduk</span></a></li>
+          <li class="nav-item"><a class="nav-link d-flex align-items-center" href="/organisasi">🏢 <span class="ms-2">Organisasi</span></a></li>
+          <li class="nav-item"><a class="nav-link d-flex align-items-center" href="/kepengurusan">👨‍💼 <span class="ms-2">Kepengurus</span></a></li>
+          <li class="nav-item"><a class="nav-link d-flex align-items-center" href="/keamanan">🛡️ <span class="ms-2">Keamanan</span></a></li>
+        </ul>
+      </aside>
+
+      <!-- ===== MAIN CONTENT ===== -->
+      <main class="col-md-9 col-lg-10 p-4">
+        <%- body %>
+      </main>
+    </div>
+  </div>
+
+  <!-- Overlay (klik untuk menutup sidebar di mobile) -->
+  <div id="overlay" class="overlay"></div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-success text-white text-center py-3 mt-auto">
+    &copy; <%= new Date().getFullYear() %> Profil RW. Semua hak dilindungi.
+  </footer>
+
+  <!-- Bootstrap Bundle JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // === Sidebar Toggle ===
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+    const toggleBtn = document.getElementById('sidebarToggle');
+
+    toggleBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('active');
+      overlay.classList.toggle('show');
+    });
+
+    overlay.addEventListener('click', () => {
+      sidebar.classList.remove('active');
+      overlay.classList.remove('show');
+    });
+  </script>
+</body>
+</html>

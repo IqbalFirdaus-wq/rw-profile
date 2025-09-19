@@ -1,0 +1,201 @@
+/* =======================
+   RESET & BASE
+   ======================= */
+   body {
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: #f5f7fa;
+    color: #333;
+    line-height: 1.5;
+  }
+  
+  /* Ruang untuk konten utama ketika sidebar tetap terlihat (desktop) */
+  .content {
+    margin-left: 240px;
+    padding: 20px;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #2c3e50;
+  }
+  
+  /* =======================
+     CARD
+     ======================= */
+  .form-card,
+  .table-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  }
+  
+  /* Form inside Card */
+  .form-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .input-text {
+    padding: 8px 12px;
+    border: 1px solid #dcdfe6;
+    border-radius: 6px;
+    outline: none;
+    transition: 0.2s;
+  }
+  
+  .input-text:focus {
+    border-color: #1ab394;
+    box-shadow: 0 0 5px rgba(26, 179, 148, 0.3);
+  }
+  
+  /* =======================
+     TABLE
+     ======================= */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  
+  thead {
+    background: #1ab394;
+    color: #fff;
+    font-weight: 600;
+  }
+  
+  th,
+  td {
+    padding: 12px 10px;
+    border: 1px solid #eee;
+    text-align: center;
+  }
+  
+  tbody tr:nth-child(even) {
+    background: #f9f9f9;
+  }
+  
+  tbody tr:hover {
+    background: #f1fdf8;
+  }
+  
+  /* =======================
+     BUTTONS
+     ======================= */
+  .btn-green,
+  .btn-blue,
+  .btn-yellow,
+  .btn-red,
+  .btn-outline {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 6px;
+    padding: 8px 14px;
+    text-decoration: none;
+    transition: 0.2s;
+  }
+  
+  /* Variants */
+  .btn-green {
+    background: #1ab394;
+    color: #fff;
+  }
+  .btn-green:hover {
+    background: #17a085;
+  }
+  
+  .btn-blue {
+    background: #3498db;
+    color: #fff;
+  }
+  .btn-blue:hover {
+    background: #2c81ba;
+  }
+  
+  .btn-yellow {
+    background: #f39c12;
+    color: #fff;
+  }
+  .btn-yellow:hover {
+    background: #d68910;
+  }
+  
+  .btn-red {
+    background: #e74c3c;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-red:hover {
+    background: #c0392b;
+  }
+  
+  .btn-outline {
+    background: transparent;
+    border: 1px solid #ccc;
+    color: #333;
+  }
+  .btn-outline:hover {
+    background: #f2f2f2;
+    border-color: #aaa;
+  }
+  
+  /* =======================
+     UTILITIES
+     ======================= */
+  .text-center {
+    text-align: center;
+    color: #888;
+  }
+  
+  /* =======================
+     SIDEBAR TOGGLE (Off-canvas)
+     ======================= */
+  .sidebar {
+    transition: transform 0.3s ease;
+  }
+  
+  /* Mobile: jadikan sidebar off-canvas */
+  @media (max-width: 767.98px) {
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 240px;           /* sama dengan margin-left desktop */
+      z-index: 1050;
+      background: #fff;
+      transform: translateX(-100%); /* sembunyi default */
+    }
+    .sidebar.active {
+      transform: translateX(0);     /* muncul saat toggle */
+    }
+  
+    /* Hilangkan margin kiri di konten agar penuh */
+    .content {
+      margin-left: 0;
+    }
+  
+    /* Overlay untuk menutup sidebar */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1049;
+      display: none;
+    }
+    .overlay.show {
+      display: block;
+    }
+  }
+  

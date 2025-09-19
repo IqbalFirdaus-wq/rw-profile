@@ -1,0 +1,60 @@
+<% /* views/organisasi/editOrganisasi.ejs */ %>
+
+<div class="card shadow-sm">
+  <div class="card-header bg-warning text-dark">
+    <h5 class="mb-0">Edit Organisasi</h5>
+  </div>
+
+  <div class="card-body">
+    <!-- Pastikan variabel o dikirim dari controller -->
+    <form method="post" action="/organisasi/<%= rw_id %>/edit/<%= o.id %>">
+      
+      <!-- Nama Organisasi -->
+      <div class="mb-3">
+        <label class="form-label">Nama Organisasi</label>
+        <input type="text" name="nama" class="form-control" 
+               value="<%= o.nama %>" required>
+      </div>
+
+      <!-- Tipe -->
+      <div class="mb-3">
+        <label class="form-label">Tipe</label>
+        <input type="text" name="tipe" class="form-control"
+               value="<%= o.tipe %>">
+      </div>
+
+      <!-- Jumlah Unit & Orang -->
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label class="form-label">Jumlah Unit</label>
+          <input type="number" name="jumlah_unit" class="form-control"
+                 value="<%= o.jumlah_unit %>">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Jumlah Orang</label>
+          <input type="number" name="jumlah_orang" class="form-control"
+                 value="<%= o.jumlah_orang %>">
+        </div>
+      </div>
+
+      <!-- Lokasi -->
+      <div class="mb-3">
+        <label class="form-label">Lokasi</label>
+        <input type="text" name="lokasi" class="form-control"
+               value="<%= o.lokasi %>">
+      </div>
+
+      <!-- Keterangan -->
+      <div class="mb-3">
+        <label class="form-label">Keterangan</label>
+        <textarea name="keterangan" class="form-control" rows="3"><%= o.keterangan %></textarea>
+      </div>
+
+      <!-- Tombol Aksi -->
+      <div class="d-flex justify-content-end">
+        <a href="/organisasi/<%= rw_id %>" class="btn btn-secondary me-2">Batal</a>
+        <button type="submit" class="btn btn-warning text-dark">Update</button>
+      </div>
+    </form>
+  </div>
+</div>

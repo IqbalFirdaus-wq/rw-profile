@@ -1,0 +1,84 @@
+<% /* views/keamanan/editKeamanan.ejs */ %>
+
+<div class="card shadow-sm">
+  <div class="card-header bg-primary text-white">
+    <h5 class="mb-0">Edit Data Keamanan RW</h5>
+  </div>
+
+  <div class="card-body">
+    <form method="post" action="/keamanan/<%= rw_id %>/edit/<%= k.id %>">
+      
+      <!-- Pos Keamanan -->
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <label class="form-label">Jumlah Pos Keamanan Unit</label>
+          <input type="number" name="pos_keamanan_unit" class="form-control" value="<%= k.pos_keamanan_unit %>">
+        </div>
+        <div class="col-md-4 mb-3">
+          <label class="form-label">Pos Keamanan Baik</label>
+          <input type="number" name="pos_keamanan_baik" class="form-control" value="<%= k.pos_keamanan_baik %>">
+        </div>
+        <div class="col-md-4 mb-3">
+          <label class="form-label">Pos Keamanan Rusak</label>
+          <input type="number" name="pos_keamanan_rusak" class="form-control" value="<%= k.pos_keamanan_rusak %>">
+        </div>
+      </div>
+
+      <!-- Personil -->
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Jumlah Linmas</label>
+          <input type="number" name="jumlah_linmas" class="form-control" value="<%= k.jumlah_linmas %>">
+        </div>
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Jumlah Satpam</label>
+          <input type="number" name="jumlah_satpam" class="form-control" value="<%= k.jumlah_satpam %>">
+        </div>
+      </div>
+
+      <!-- CCTV -->
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <label class="form-label">Jumlah CCTV</label>
+          <input type="number" name="jumlah_cctv" class="form-control" value="<%= k.jumlah_cctv %>">
+        </div>
+        <div class="col-md-4 mb-3">
+          <label class="form-label">CCTV Baik</label>
+          <input type="number" name="cctv_baik" class="form-control" value="<%= k.cctv_baik %>">
+        </div>
+        <div class="col-md-4 mb-3">
+          <label class="form-label">CCTV Rusak</label>
+          <input type="number" name="cctv_rusak" class="form-control" value="<%= k.cctv_rusak %>">
+        </div>
+      </div>
+
+      <!-- Titik Rawan -->
+      <div class="mb-3">
+        <label class="form-label">Titik Rawan</label>
+        <textarea name="titik_rawan" class="form-control" rows="2"><%= k.titik_rawan %></textarea>
+      </div>
+
+      <!-- Fasilitas Keamanan -->
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <label class="form-label">Jumlah APAR</label>
+          <input type="number" name="jumlah_apar" class="form-control" value="<%= k.jumlah_apar %>">
+        </div>
+        <div class="col-md-4 mb-3">
+          <label class="form-label">Jumlah Sprinkle</label>
+          <input type="number" name="jumlah_sprinkle" class="form-control" value="<%= k.jumlah_sprinkle %>">
+        </div>
+        <div class="col-md-4 mb-3">
+          <label class="form-label">Jumlah Sumber Air</label>
+          <input type="number" name="jumlah_sumber_air" class="form-control" value="<%= k.jumlah_sumber_air %>">
+        </div>
+      </div>
+
+      <!-- Tombol -->
+      <div class="d-flex justify-content-end">
+        <a href="/keamanan/<%= rw_id %>" class="btn btn-secondary me-2">Batal</a>
+        <button type="submit" class="btn btn-primary">Update</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+<div class="card shadow-sm">
+  <div class="card-header bg-warning text-dark">
+    <h5 class="mb-0">
+      Edit Pengurus 
+    </h5>
+  </div>
+
+  <div class="card-body">
+    <form action="/kepengurusan/<%= rw_id %>/<%= p.id %>/edit" method="POST">
+
+      <!-- Nama -->
+      <div class="mb-3">
+        <label>Nama</label>
+        <input type="text" name="nama" class="form-control" 
+               value="<%= p.nama %>" required>
+      </div>
+
+      <!-- Jabatan -->
+      <div class="mb-3">
+        <label>Jabatan</label>
+        <input type="text" name="jabatan" class="form-control" 
+               value="<%= p.jabatan %>" required>
+      </div>
+
+      <!-- No KTP -->
+      <div class="mb-3">
+        <label>No KTP</label>
+        <input type="text" name="no_ktp" class="form-control" 
+               value="<%= p.no_ktp %>">
+      </div>
+
+      <!-- No Telp -->
+      <div class="mb-3">
+        <label>No Telp</label>
+        <input type="text" name="telp" class="form-control" 
+               value="<%= p.telp %>">
+      </div>
+
+      <!-- Alamat -->
+      <div class="mb-3">
+        <label>Alamat</label>
+        <textarea name="alamat" class="form-control"><%= p.alamat %></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Simpan</button>
+      <a href="/kepengurusan/<%= rw_id %>" class="btn btn-secondary">Batal</a>
+    </form>
+  </div>
+</div>

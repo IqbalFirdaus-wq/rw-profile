@@ -1,0 +1,110 @@
+<% /* views/penduduk/addPenduduk.ejs */ %>
+
+<div class="card shadow-sm">
+  <div class="card-header bg-success text-white">
+    <h5 class="mb-0">Tambah Penduduk</h5>
+  </div>
+
+  <div class="card-body">
+    <form method="post" action="/penduduk/add">
+
+      <!-- RW -->
+      <div class="mb-3">
+        <label class="form-label">RW</label>
+        <select name="rw_id" class="form-select" required>
+          <option value="">-- Pilih RW --</option>
+          <% rwList.forEach(rw => { %>
+            <option value="<%= rw.id %>">
+              <%= rw.kode_rw %> - <%= rw.nama_rw %>
+            </option>
+          <% }) %>
+        </select>
+      </div>
+
+      <!-- RT -->
+      <div class="mb-3">
+        <label class="form-label">RT</label>
+        <input type="text" name="rt" class="form-control" required>
+      </div>
+
+      <!-- Nama -->
+      <div class="mb-3">
+        <label class="form-label">Nama</label>
+        <input type="text" name="nama" class="form-control" required>
+      </div>
+
+      <!-- NIK -->
+      <div class="mb-3">
+        <label class="form-label">NIK</label>
+        <input type="text" name="nik" maxlength="16" class="form-control" required>
+      </div>
+
+      <!-- Jenis Kelamin -->
+      <div class="mb-3">
+        <label class="form-label">Jenis Kelamin</label>
+        <select name="jenis_kelamin" class="form-select" required>
+          <option value="">-- Pilih --</option>
+          <option value="L">Laki-laki</option>
+          <option value="P">Perempuan</option>
+        </select>
+      </div>
+
+      <!-- Tanggal Lahir -->
+      <div class="mb-3">
+        <label class="form-label">Tanggal Lahir</label>
+        <input type="date" name="tanggal_lahir" class="form-control" required>
+      </div>
+
+      <!-- Pendidikan -->
+      <div class="mb-3">
+        <label class="form-label">Pendidikan</label>
+        <select name="pendidikan" class="form-select" required>
+          <option value="">-- Pilih --</option>
+          <option>SD</option><option>SMP</option><option>SMA</option>
+          <option>D3</option><option>S1</option><option>S2</option><option>S3</option>
+        </select>
+      </div>
+
+      <!-- Alamat -->
+      <div class="mb-3">
+        <label class="form-label">Alamat</label>
+        <textarea name="alamat" class="form-control" rows="3" required></textarea>
+      </div>
+
+      <!-- Pekerjaan -->
+      <div class="mb-3">
+        <label class="form-label">Pekerjaan</label>
+        <select name="pekerjaan" class="form-select" required>
+          <option value="">-- Pilih --</option>
+          <option>Tidak Bekerja</option>
+          <option>Mengurus Rumah Tangga</option>
+          <option>Pelajar</option>
+          <option>Mahasiswa</option>
+          <option>Pensiunan</option>
+          <option>PNS</option>
+          <option>TNI</option>
+          <option>Polri</option>
+          <option>Perdagangan</option>
+          <option>Petani</option>
+          <option>Nelayan</option>
+          <option>Swasta</option>
+          <option>BUMN</option>
+          <option>BUMD</option>
+          <option>Wiraswasta</option>
+          <option>Buruh Harian Lepas</option>
+          <option>Tukang</option>
+          <option>Seniman</option>
+          <option>Mekanik</option>
+          <option>Tabib</option>
+          <option>Wartawan</option>
+        </select>
+      </div>
+
+      <div class="d-flex justify-content-end">
+        <a href="/penduduk" class="btn btn-secondary me-2">Batal</a>
+        <button type="submit" class="btn btn-success">Simpan</button>
+      </div>
+
+    </form>
+  </div>
+</div>

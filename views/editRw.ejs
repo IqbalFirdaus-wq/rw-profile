@@ -1,0 +1,31 @@
+<div class="card shadow-sm">
+    <div class="card-header bg-warning text-dark">
+      <h5 class="mb-0">Edit RW</h5>
+    </div>
+    <div class="card-body">
+      <form method="post" action="/edit/<%= rw.id %>">
+        <input type="hidden" name="id" value="<%= rw.id %>">
+  
+        <div class="mb-3">
+          <label class="form-label">Kode RW</label>
+          <input name="kode_rw" class="form-control" value="<%= rw.kode_rw %>" required>
+        </div>
+  
+        <div class="mb-3">
+          <label class="form-label">Nama RW</label>
+          <input name="nama_rw" class="form-control" value="<%= rw.nama_rw %>" required>
+        </div>
+  
+        <div class="mb-3">
+          <label class="form-label">Alamat</label>
+          <textarea name="alamat" class="form-control" rows="3"><%= rw.alamat %></textarea>
+        </div>
+  
+        <div class="d-flex justify-content-end">
+          <a href="/" class="btn btn-secondary me-2">Batal</a>
+          <button class="btn btn-warning text-dark">Update</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

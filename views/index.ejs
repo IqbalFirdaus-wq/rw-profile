@@ -1,0 +1,58 @@
+<div class="content">
+  <h2>Daftar RW</h2>
+
+  <!-- Form & Tombol -->
+  <div class="form-card d-flex justify-between align-center">
+    <div>
+      <a href="/export/excel" class="btn-green">Export Excel</a>
+      <a href="/add" class="btn-blue">+ Tambah RW</a>
+    </div>
+  </div>
+
+  <!-- Tabel -->
+  <div class="table-card">
+    <table>
+      <thead>
+        <tr>
+          <th>
+            <a href="/?sort=kode_rw&order=<%= sort === 'kode_rw' && order === 'ASC' ? 'DESC' : 'ASC' %>">
+              Kode RW
+              <% if (sort === 'kode_rw') { %>
+                <%= order === 'ASC' ? '▲' : '▼' %>
+              <% } %>
+            </a>
+          </th>
+          <th>
+              Nama RW
+          </th>
+          <th>
+              Alamat
+          </th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if (rwList.length > 0) { %>
+          <% rwList.forEach(rw => { %>
+            <tr>
+              <td><%= rw.kode_rw %></td>
+              <td><%= rw.nama_rw %></td>
+              <td><%= rw.alamat %></td>
+              <td>
+                <a href="/edit/<%= rw.id %>" class="btn-yellow">Edit</a>
+                <form action="/delete/<%= rw.id %>" method="post" class="d-inline"
+                      onsubmit="return confirm('Hapus RW ini?');">
+                  <button class="btn-red">Hapus</button>
+                </form>
+              </td>
+            </tr>
+          <% }) %>
+        <% } else { %>
+          <tr>
+            <td colspan="4" class="text-center">Tidak ada data RW</td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
+</div>

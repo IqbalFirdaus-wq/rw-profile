@@ -1,0 +1,55 @@
+<div class="card shadow-sm">
+  <div class="card-header bg-success text-white">
+    <h5 class="mb-0">Tambah Pengurus RW</h5>
+  </div>
+
+  <div class="card-body">
+    <!-- form kirim ke /kepengurusan/add -->
+    <form action="/kepengurusan/add" method="POST">
+
+      <!-- Dropdown Pilih RW -->
+      <div class="mb-3">
+        <label class="form-label">RW</label>
+        <select name="rw_id" class="form-select" required>
+          <option value="">-- Pilih RW --</option>
+          <% rwList.forEach(rw => { %>
+            <option value="<%= rw.id %>" <%= rw_id == rw.id ? 'selected' : '' %>>
+              RW <%= rw.kode_rw %> - <%= rw.nama_rw %>
+            </option>
+          <% }) %>
+        </select>        
+      </div>
+
+      <div class="mb-3">
+        <label>Nama</label>
+        <input type="text" name="nama" class="form-control" required>
+      </div>
+    
+      <div class="mb-3">
+        <label>Jabatan</label>
+        <input type="text" name="jabatan" class="form-control" required>
+      </div>
+    
+      <div class="mb-3">
+        <label>No KTP</label>
+        <input type="text" name="no_ktp" class="form-control">
+      </div>
+    
+      <div class="mb-3">
+        <label>No Telp</label>
+        <input type="text" name="telp" class="form-control">
+      </div>
+    
+      <div class="mb-3">
+        <label>Alamat</label>
+        <textarea name="alamat" class="form-control"></textarea>
+      </div>
+
+      <div class="d-flex justify-content-end">
+        <!-- Tombol batal kembali ke daftar kepengurusan global -->
+        <a href="/kepengurusan" class="btn btn-secondary me-2">Batal</a>
+        <button class="btn btn-success">Simpan</button>
+      </div>
+    </form>    
+  </div>
+</div>

@@ -1,0 +1,100 @@
+<% /* views/penduduk/editPenduduk.ejs */ %>
+
+<div class="card shadow-sm">
+  <div class="card-header bg-warning text-dark">
+    <h5 class="mb-0">Edit Penduduk RW</h5>
+  </div>
+
+  <div class="card-body">
+    <form method="post" action="/penduduk/<%= rw_id %>/<%= p.id %>/edit">
+      <input type="hidden" name="rw_id" value="<%= rw_id %>">
+
+      <!-- RT -->
+      <div class="mb-3">
+        <label class="form-label">RT</label>
+        <input type="text" name="rt" class="form-control" value="<%= p.rt %>" required>
+      </div>
+
+      <!-- Nama -->
+      <div class="mb-3">
+        <label class="form-label">Nama</label>
+        <input type="text" name="nama" class="form-control" value="<%= p.nama %>" required>
+      </div>
+
+      <!-- NIK -->
+      <div class="mb-3">
+        <label class="form-label">NIK</label>
+        <input type="text" name="nik" maxlength="16" class="form-control" value="<%= p.nik %>" required>
+      </div>
+
+      <!-- Jenis Kelamin -->
+      <div class="mb-3">
+        <label class="form-label">Jenis Kelamin</label>
+        <select name="jenis_kelamin" class="form-select" required>
+          <option value="L" <%= p.jenis_kelamin === 'L' ? 'selected' : '' %>>Laki-laki</option>
+          <option value="P" <%= p.jenis_kelamin === 'P' ? 'selected' : '' %>>Perempuan</option>
+        </select>
+      </div>
+
+      <!-- Tanggal Lahir -->
+      <div class="mb-3">
+        <label class="form-label">Tanggal Lahir</label>
+        <input type="date" name="tanggal_lahir" class="form-control" value="<%= p.tanggal_lahir %>" required>
+      </div>
+
+      <!-- Pendidikan -->
+      <div class="mb-3">
+        <label class="form-label">Pendidikan</label>
+        <select name="pendidikan" class="form-select" required>
+          <option value="SD" <%= p.pendidikan === 'SD' ? 'selected' : '' %>>SD</option>
+          <option value="SMP" <%= p.pendidikan === 'SMP' ? 'selected' : '' %>>SMP</option>
+          <option value="SMA" <%= p.pendidikan === 'SMA' ? 'selected' : '' %>>SMA</option>
+          <option value="D3" <%= p.pendidikan === 'D3' ? 'selected' : '' %>>D3</option>
+          <option value="S1" <%= p.pendidikan === 'S1' ? 'selected' : '' %>>S1</option>
+          <option value="S2" <%= p.pendidikan === 'S2' ? 'selected' : '' %>>S2</option>
+          <option value="S3" <%= p.pendidikan === 'S3' ? 'selected' : '' %>>S3</option>
+        </select>
+      </div>
+
+      <!-- Alamat -->
+      <div class="mb-3">
+        <label class="form-label">Alamat</label>
+        <textarea name="alamat" class="form-control" rows="3" required><%= p.alamat %></textarea>
+      </div>
+
+      <!-- Pekerjaan -->
+      <div class="mb-3">
+        <label class="form-label">Pekerjaan</label>
+        <select name="pekerjaan" class="form-select" required>
+          <option value="Tidak Bekerja" <%= p.pekerjaan === 'Tidak Bekerja' ? 'selected' : '' %>>Tidak Bekerja</option>
+          <option value="Mengurus Rumah Tangga" <%= p.pekerjaan === 'Mengurus Rumah Tangga' ? 'selected' : '' %>>Mengurus Rumah Tangga</option>
+          <option value="Pelajar" <%= p.pekerjaan === 'Pelajar' ? 'selected' : '' %>>Pelajar</option>
+          <option value="Mahasiswa" <%= p.pekerjaan === 'Mahasiswa' ? 'selected' : '' %>>Mahasiswa</option>
+          <option value="Pensiunan" <%= p.pekerjaan === 'Pensiunan' ? 'selected' : '' %>>Pensiunan</option>
+          <option value="PNS" <%= p.pekerjaan === 'PNS' ? 'selected' : '' %>>PNS</option>
+          <option value="TNI" <%= p.pekerjaan === 'TNI' ? 'selected' : '' %>>TNI</option>
+          <option value="Polri" <%= p.pekerjaan === 'Polri' ? 'selected' : '' %>>Kepolisian RI</option>
+          <option value="Perdagangan" <%= p.pekerjaan === 'Perdagangan' ? 'selected' : '' %>>Perdagangan</option>
+          <option value="Petani" <%= p.pekerjaan === 'Petani' ? 'selected' : '' %>>Petani</option>
+          <option value="Nelayan" <%= p.pekerjaan === 'Nelayan' ? 'selected' : '' %>>Nelayan</option>
+          <option value="Swasta" <%= p.pekerjaan === 'Swasta' ? 'selected' : '' %>>Karyawan Swasta</option>
+          <option value="BUMN" <%= p.pekerjaan === 'BUMN' ? 'selected' : '' %>>Karyawan BUMN</option>
+          <option value="BUMD" <%= p.pekerjaan === 'BUMD' ? 'selected' : '' %>>Karyawan BUMD</option>
+          <option value="Wiraswasta" <%= p.pekerjaan === 'Wiraswasta' ? 'selected' : '' %>>Wiraswasta</option>
+          <option value="Buruh Harian Lepas" <%= p.pekerjaan === 'Buruh Harian Lepas' ? 'selected' : '' %>>Buruh Harian Lepas</option>
+          <option value="Tukang" <%= p.pekerjaan === 'Tukang' ? 'selected' : '' %>>Tukang</option>
+          <option value="Seniman" <%= p.pekerjaan === 'Seniman' ? 'selected' : '' %>>Seniman</option>
+          <option value="Mekanik" <%= p.pekerjaan === 'Mekanik' ? 'selected' : '' %>>Mekanik</option>
+          <option value="Tabib" <%= p.pekerjaan === 'Tabib' ? 'selected' : '' %>>Tabib</option>
+          <option value="Wartawan" <%= p.pekerjaan === 'Wartawan' ? 'selected' : '' %>>Wartawan</option>
+        </select>
+      </div>
+
+      <!-- Tombol Aksi -->
+      <div class="d-flex justify-content-end">
+        <a href="/penduduk/<%= rw_id %>" class="btn btn-secondary me-2">Batal</a>
+        <button type="submit" class="btn btn-success">Update</button>
+      </div>
+    </form>
+  </div>
+</div>
